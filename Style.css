@@ -7,30 +7,40 @@
 }
 
 body {
-    background: #000;
+    background: url("background.png") no-repeat center center fixed;
+    background-size: cover;
     color: #e6e6e6;
-    overflow-x: hidden;
+    overflow-x: hidden; 
 }
+
 
 /* BACKGROUND OVERLAY FOR ATMOSPHERE */
 .bg-overlay {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(0,0,0,1) 70%);
-    z-index: -1;
+
 }
 
 /* HEADER */
 header {
-    width: 100%;
+   width: 100%;
     padding: 20px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(4px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    background: rgba(61, 61, 63, 0.55); /* SOLID AT TOP */
+    backdrop-filter: blur(6px);
+    transition: background 0.4s ease, padding 0.4s ease;
+}
+header.scrolled {
+    background: rgba(61,61,63,0.25); /* MORE TRANSPARENT */
+    padding: 15px 60px; /* optional shrinking animation */
 }
 
 .title {
@@ -38,11 +48,25 @@ header {
     letter-spacing: 2px;
     font-weight: 300;
     text-transform: uppercase;
+    
 }
 
 /* NAVIGATION */
+.download-btn {
+  padding: 8px 16px;
+  background: #A7ADAC;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+nav {
+    position: sticky;
+}
+
 nav a {
-    margin-left: 25px;
+   margin-left: 25px;
     text-decoration: none;
     color: #ccc;
     font-size: 15px;
